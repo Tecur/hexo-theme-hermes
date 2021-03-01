@@ -1,11 +1,11 @@
 menu:
     Blog: /
-    GitHub: https://github.com/claymcleod
+    GitHub: https://github.com/Tecur
     Archive: archives/
     Feed: atom.xml
 
-favicon: favicon.png
-logo: favicon.png
+favicon: favicon.svg
+logo: favicon.svg
 
 # Comment
 # e.g disqus: claymcleod 
@@ -15,7 +15,7 @@ disqus:
 # ga: UA-xxxxxxxx-x
 
 # Copyright Infomation
-startyear: 2019
+startyear: 2018
 
 # Image Credits
-enable_image_credit: true 
+enable_image_credit: true

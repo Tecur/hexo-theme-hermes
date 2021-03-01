@@ -27,7 +27,7 @@
 }
 
 .post-content {
-    h2, h3, h4, h5, h6 {
+    h2 {
         position: relative;
         margin: 1em 0;
         a:before {
@@ -40,6 +40,21 @@
             font-weight: bold;
         }
     }
+
+    h3 {
+        position: relative;
+        margin: 1em 0.7em;
+        a:before {
+            content: "##";
+            color: #5454f8;
+            position: absolute;
+            left: -1.4em;
+            top: -4px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    }
+
     h4, h5, h6 {
         a:before {
             content: "";
