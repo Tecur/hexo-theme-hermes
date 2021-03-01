@@ -396,8 +396,7 @@ hr {
 code {
   margin: 0 2px;
   padding: 3px 5px;
-  color: #e96900;
-  border-radius: 2px;
+  color: #ffffff;
   white-space: inherit; }
 
 iframe, video {
@@ -571,8 +570,10 @@ header {
 code,
 pre {
   font-size: 0.8em;
-  background-color: #f8f8f8;
-  font-family: 'Roboto Mono', Monaco, courier, monospace; }
+  background-color: #34495e;
+  border-radius: 2px;
+  font-family: 'Consolas', monaco, monospace;
+  font-weight: 700; }
 
 .highlight {
   position: relative;
@@ -666,7 +667,7 @@ pre {
   content: 'C++'; }
 
 pre {
-  color: #525252; }
+  color: #ffffff; }
   pre .function .keyword,
   pre .constant {
     color: #0092db; }
