@@ -12,6 +12,7 @@ header {
 
     .logo-link img {
         height: 60px;
+        vertical-align: middle;
     }
 
     .nav-list-item {
@@ -21,5 +22,24 @@ header {
             font-size: 16px;
             line-height: 1.4;
         }
+    }
+
+    .head-table {
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+    }
+
+    .head-table-img {
+        margin: 0;
+        padding: 0;
+        height: 60px;
+    }
+
+    .site-title {
+        margin: 0;
+        padding: 0px 12px;
+        float: left;
+        align-self: center;
     }
 }
