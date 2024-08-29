@@ -10,6 +10,14 @@ block description
 meta(name="viewport", content="width=device-width, initial-scale=1")
 link(rel="icon", href=url_for(theme.favicon))
 link(rel="stylesheet", href=url_for("css/hermes.css"))
+link(rel="stylesheet", href=url_for("css/katex.min.css"))
+link(rel="stylesheet", href=url_for("css/github-markdown.css"))
+
+//- Preload fonts (only latin ones)
+link(rel="preload" href="/fonts/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2" as="font" type="font/woff2" crossorigin)
+link(rel="preload" href="/fonts/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2" as="font" type="font/woff2" crossorigin)
+link(rel="preload" href="/fonts/HhyJU5sn9vOmLxNkIwRSjTVNWLEJN7Ml2xME.woff2" as="font" type="font/woff2" crossorigin)
+link(rel="preload" href="/fonts/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2" as="font" type="font/woff2" crossorigin)
 
 - var xml = config.url + '/atom.xml'
     link(rel="search", type="application/opensearchdescription+xml", href=xml, title=config.title)
