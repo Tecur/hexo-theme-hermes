@@ -5,12 +5,12 @@
 .post-block {
     .post-title {
         margin: 0.65em 0;
-        color: #2c3e50;
+        color: $onBackground;
         font-size: 1.5em;
     }
 
     .post-info {
-        color: #7f8c8d;
+        color: $onBackground;
         margin: 1.2em 0;
         span {
             margin-left: 0.5rem;
@@ -20,8 +20,8 @@
             padding: 3px 6px;
             border-radius: 5px;
             font-size: 12px;
-            color: white;
-            background-color: #E36B6B;
+            color: $error;
+            background-color: $onError;
         }
     }
 }
@@ -32,7 +32,7 @@
         margin: 1em 0;
         a:before {
             content: "#";
-            color: #5454f8;
+            color: $primary;
             position: absolute;
             left: -0.7em;
             top: -4px;
@@ -46,7 +46,7 @@
         margin: 1em 0.7em;
         a:before {
             content: "##";
-            color: #5454f8;
+            color: $primary;
             position: absolute;
             left: -1.4em;
             top: -4px;
@@ -69,13 +69,13 @@
         font-size: 18px;
     }
     a {
-        color: #5454f8;
+        color: $primary;
         word-break: break-all;
     }
     blockquote {
         margin: 2em 0;
         padding-left: 20px;
-        border-left: 4px solid #5454f8;
+        border-left: 4px solid $primary;
     }
     img {
         display: block;
@@ -84,16 +84,16 @@
     }
     & > table,
     & > figure.highlight {
-        box-shadow: 0 1px 2px rgba(0,0,0,0.125);
+        box-shadow: 0 1px 2px $shadow;
     }
     .danger {
         position: relative;
         margin: 2em 0;
         padding: 12px 24px 12px 30px;
-        border-left: 4px solid #f66;
+        border-left: 4px solid $onErrorContainer;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
-        background-color: #f8f8f8;
+        background-color: $errorContainer;
         br {
             display: none;
         }
@@ -106,12 +106,12 @@
         width: 20px;
         height: 20px;
         border-radius: 100%;
-        color: #fff;
+        color: $errorContainer;
         font-size: 14px;
         line-height: 20px;
         font-weight: bold;
         text-align: center;
-        background-color: #f66;
+        background-color: $onErrorContainer;
         font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
     }
 }
@@ -122,7 +122,7 @@
     width: 100%;
     height: 100%;
     padding: 1em 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $background;
     z-index: 10;
     #mask-image {
         max-width: 95%;
@@ -131,7 +131,7 @@
 
 code[class*=language-],
 pre[class*=language-] {
-
+    background-color: $surfaceContainer;
     // soft wrap
     white-space:pre-wrap;
 
@@ -147,7 +147,7 @@ pre[class*=language-] {
     }
 
     div.caption {
-        background-color: #2d3438;
+        background-color: $surfaceContainerHigh;
         line-height: 1.4em;
         padding: 0 10px;
         margin-top: -1em;
@@ -156,7 +156,7 @@ pre[class*=language-] {
         margin-bottom: 1.0em;
 
         span {
-            color: #ccc;
+            color: $onSurface;
             text-align: left;
             font-size: 1.0em;
             font-weight: 600;
@@ -183,7 +183,7 @@ pre.line-numbers {
     position: absolute;
     top: 0;
     right: 0;
-    color: #ccc;
+    color: $onSurface;
     text-align: right;
     font-size: 0.75em;
     padding: 5px 10px 0;

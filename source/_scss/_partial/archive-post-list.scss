@@ -11,16 +11,16 @@
     .post-title-link {
         display: block;
         margin-left: 125px;
-        color: #5454f8;
+        color: $primary;
         word-break: break-all;
         &:hover {
             border-bottom: 0;
-            color: #267B54;
+            color: $primaryFixedDim;
         }
     }
     .post-info {
         float: left;
         width: 125px;
-        color: #7f8c8d;
+        color: $onBackground;
     }
 }
