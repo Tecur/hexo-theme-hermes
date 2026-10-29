@@ -1,8 +1,22 @@
-ul.nav.nav-list
-    each value, key in theme.menu
-        li.nav-list-item
-            - var re = /^(http|https):\/\/*/gi;
-            - var tar = re.test(value) ? "_blank" : "_self"
-            - var act = !re.test(value) && "/"+page.current_url === value
-            a.nav-list-link(class={active: act} href=url_for(value) target=tar)
-                != key.toUpperCase()
+include ../mixins/icon
+
+.nav
+    //- Normalize "projects/index.html" to "/projects/" so menu entries can match
+    - var pagePath = page.path || page.current_url || ""
+    - var currentPath = "/" + pagePath.replace(/index\.html$/, "")
+    ul.nav-list
+        each value, key in theme.menu
+            li.nav-list-item
+                - var re = /^(http|https):\/\/*/gi;
+                - var tar = re.test(value) ? "_blank" : "_self"
+                - var act = !re.test(value) && (currentPath === url_for(value) || currentPath === value)
+                a.nav-list-link(class={active: act} href=url_for(value) target=tar)
+                    != key.toUpperCase()
+    if theme.menu_icons
+        ul.nav-list.nav-list-icons
+            each value, key in theme.menu_icons
+                - var re = /^(http|https):\/\/*/gi;
+                - var tar = re.test(value) ? "_blank" : "_self"
+                li.nav-list-item.nav-list-item-icon
+                    a.nav-list-link.nav-list-link-icon(href=url_for(value) target=tar title=key aria-label=key)
+                        +menu-icon(key)

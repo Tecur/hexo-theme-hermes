@@ -18,13 +18,26 @@ main.container {
     }
     header {
         padding: 20px 0;
-        a.logo-link,
-        ul.nav.nav-list {
+        a.logo-link {
             float: none;
             display: block;
             text-align: center;
         }
+        .nav {
+            float: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: auto;
+        }
+        // Icons wrap onto their own row on small screens -> no vertical divider
+        .nav-list-icons {
+            margin-left: 0;
+            padding-left: 0;
+            border-left: 0;
+        }
         li.nav-list-item {
+            height: auto;
             padding: 10px 10px;
         }
     }

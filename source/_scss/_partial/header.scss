@@ -4,10 +4,28 @@ header {
     .logo-link {
         float: left;
     }
-    
+
+    // Navigation container: text links followed by icon links on the far right
     .nav {
         float: right;
-        left: 80px;
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+
+    .nav-list {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    // Small separator between text menu and icons, matching the title padding
+    .nav-list-icons {
+        margin-left: 12px;
+        padding-left: 12px;
+        border-left: 1px solid $outlineVariant;
     }
 
     .logo-link img {
@@ -16,12 +34,52 @@ header {
     }
 
     .nav-list-item {
-        display: inline-block;
-        padding: 19px  10px ;
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding: 0 10px;
+
         a {
             font-size: 16px;
             line-height: 1.4;
         }
+    }
+
+    .nav-list-item-icon {
+        height: auto;
+        padding: 0 6px;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    a.nav-list-link-icon {
+        display: flex;
+        align-items: center;
+        color: $onBackground;
+
+        &:hover,
+        &:focus {
+            border-bottom: none;
+            color: $primary;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $primary;
+            outline-offset: 3px;
+        }
+    }
+
+    // Icon size follows the menu font size (16px) so it matches the text
+    .nav-icon {
+        display: block;
+        width: 1em;
+        height: 1em;
+    }
+
+    .nav-icon-fallback {
+        font-size: 16px;
     }
 
     .head-table {

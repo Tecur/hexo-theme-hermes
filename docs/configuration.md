@@ -2,6 +2,7 @@
 
 - [Meta Descriptions](#meta-descriptions)
 - [Titles](#titles)
+- [Navigation](#navigation)
 - [Displaying Post Previews](#displaying-post-previews)
 - [Comments](#comments)
 - [Danger Block](#danger-block)
@@ -26,18 +27,39 @@ result:
 <meta name="description" content="Lorem ipsum dolor sit amet, consectetur.">
 ```
 
-If there is no `desc` property or value, hexo-theme-hermes will use `page.title` and `page.author` instead of it. 
+If there is no `desc` property or value, hexo-theme-hermes will use `page.title` and `page.author` instead of it.
 
 ## Titles
 
 `hexo-theme-hermes` supports two kinds of titles:
 
-* `h1` through `h3` elements are treated the same as "large" titles.
-* `h4` through `h6` elements are treated the same as "small" titles.
+- `h1` through `h3` elements are treated the same as "large" titles.
+- `h4` through `h6` elements are treated the same as "small" titles.
 
 The idea is to keep the structure of the blog post simple and readable rather than nesting multiple layers and distracting from the content. The original author of the `hexo-theme-apollo` theme was the individual that made that decision, and I have inherited it here.
 
-## Displaying Post Previews 
+## Navigation
+
+The header shows text links on the left and optional icon links on the far right.
+
+```yaml
+menu:
+    Blog: /
+    Archive: archives/
+
+menu_icons:
+    GitHub: https://github.com/Tecur
+    Feed: atom.xml
+```
+
+- `menu` renders uppercase text links; `menu_icons` renders inline SVG icons.
+- Available icon names are `GitHub` and `Feed` (see `layout/mixins/icon.pug`).
+  Unknown names fall back to a plain text link.
+- Icons are sized with `1em`, so they match the 16px menu text, and are separated
+  from the text links by a short divider.
+- External `http(s)` targets open in a new tab.
+
+## Displaying Post Previews
 
 If you wish to include some text as a preview of the article on the blog index, you can include the `<!-- more -->` statement. All content before the `<!-- more -->` statement will be parsed and shown in your index.
 
@@ -70,7 +92,7 @@ This is an example danger message!
 
 You can modify the `/archives/` section of the site by included any of the [hexo-generator-archive](https://github.com/hexojs/hexo-generator-archive) options to your `_config.yml` file under `theme`.
 
-```
+```text
 archive_generator:
     per_page: 0
     yearly: false

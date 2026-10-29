@@ -1,0 +1,40 @@
+extends partial/layout
+
+block site_title
+    != page.title + " · " + config.title
+
+block description
+    - var desc = page.desc || page.description || page.title + ' - ' + config.author;
+    meta(name="description", content=desc)
+
+block container
+    - var projects = site.data.projects || [];
+    div.project-page
+        h1.page-title #{ page.title }
+        if page.content
+            div.page-content
+                != page.content
+        if projects.length
+            ul.project-grid
+                each project in projects
+                    li.project-card
+                        if project.image
+                            img.project-card-image(src=url_for(project.image) alt=project.title loading="lazy")
+                        div.project-card-body
+                            h2.project-card-title
+                                a.project-card-link(href=url_for(project.url))= project.title
+                            if project.description
+                                p.project-card-text= project.description
+                            if project.tags && project.tags.length
+                                ul.project-tags
+                                    each tag in project.tags
+                                        li.project-tag= tag
+                            div.project-card-footer
+                                span.project-card-cta View project
+                                if project.repo
+                                    a.project-card-repo(href=project.repo target="_blank" rel="noopener") Source
+        else
+            p.project-empty No projects yet. Add entries to source/_data/projects.yml.
+
+block copyright
+    include partial/copyright

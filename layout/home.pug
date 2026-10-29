@@ -1,0 +1,54 @@
+extends partial/layout
+
+block site_title
+    != page.title + " · " + config.title
+
+block description
+    - var desc = page.desc || page.description || config.description;
+    meta(name="description", content=desc)
+
+block container
+    - var posts = site.posts.sort('-date').toArray();
+    - var latest = posts.slice(0, 3);
+    - var projectList = site.data.projects || [];
+    div.home
+        div.home-banner
+            img.home-banner-image(src=url_for('images/home-banner.jpg') alt="" aria-hidden="true")
+            div.home-banner-overlay
+                img.home-banner-logo(src=url_for(theme.logo) alt="")
+                span.home-banner-title= config.title
+        section.home-intro
+            h1.home-title #{ page.title }
+            if page.content
+                div.home-text
+                    != page.content
+        ul.home-cards
+            li.home-card
+                h2.home-card-title
+                    a.home-card-link(href=url_for('blog/')) Blog
+                p.home-card-text Build logs, tutorials and notes on electronics, astrophotography and software.
+                if latest.length
+                    ul.home-card-hint
+                        each post in latest
+                            li
+                                a(href=url_for(post.path))= post.title
+                span.home-card-cta Read the blog
+            li.home-card
+                h2.home-card-title
+                    a.home-card-link(href=url_for('projects/')) Projects
+                p.home-card-text Tools, hardware builds and experiments – each with a detailed write-up.
+                if projectList.length
+                    ul.home-card-hint
+                        each project in projectList.slice(0, 3)
+                            li
+                                a(href=url_for(project.url))= project.title
+                span.home-card-cta Browse the projects
+            li.home-card
+                h2.home-card-title
+                    a.home-card-link(href=url_for('archives/')) Archive
+                p.home-card-text Every post in chronological order, in case you are looking for something specific.
+                p.home-card-hint-note #{ posts.length } posts published so far.
+                span.home-card-cta Open the archive
+
+block copyright
+    include partial/copyright

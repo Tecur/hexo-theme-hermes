@@ -33,6 +33,7 @@ sed -i.bak 's/relative_link: false/relative_link: true/g' _config.yml && rm _con
 # Start the hexo server
 hexo server
 ```
+
 To update your copy of the theme at any time, simply do
 
 ```bash

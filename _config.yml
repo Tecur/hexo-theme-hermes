@@ -1,14 +1,19 @@
 menu:
-    Blog: /
-    GitHub: https://github.com/Tecur
-    Archive: archives/
-    Feed: atom.xml
+  Blog: blog/
+  Projects: projects/
+  Archive: archives/
+
+# Icon-only links, rendered on the right side of the navigation
+# Supported icon names: GitHub, Feed
+menu_icons:
+  GitHub: https://github.com/Tecur
+  Feed: atom.xml
 
 favicon: favicon.svg
 logo: favicon.svg
 
 # Comment
-# e.g disqus: claymcleod 
+# e.g disqus: claymcleod
 disqus:
 
 # Analytics
