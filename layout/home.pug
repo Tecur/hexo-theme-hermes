@@ -32,22 +32,17 @@ block container
                             li
                                 a(href=url_for(post.path))= post.title
                 span.home-card-cta Read the blog
-            li.home-card
-                h2.home-card-title
-                    a.home-card-link(href=url_for('projects/')) Projects
-                p.home-card-text Tools, hardware builds and experiments – each with a detailed write-up.
-                if projectList.length
+            //- Only rendered once at least one entry exists in source/_data/projects.yml
+            if projectList.length
+                li.home-card
+                    h2.home-card-title
+                        a.home-card-link(href=url_for('projects/')) Projects
+                    p.home-card-text Tools, hardware builds and experiments – each with a detailed write-up.
                     ul.home-card-hint
                         each project in projectList.slice(0, 3)
                             li
                                 a(href=url_for(project.url))= project.title
-                span.home-card-cta Browse the projects
-            li.home-card
-                h2.home-card-title
-                    button.home-card-link.search-toggle(type="button") Search
-                p.home-card-text Find posts and project pages by keyword – titles, tags and full text are indexed.
-                p.home-card-hint-note Everything is searched locally in your browser.
-                span.home-card-cta Open search
+                    span.home-card-cta Browse the projects
 
 block copyright
     include partial/copyright

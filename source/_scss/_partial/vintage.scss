@@ -1,0 +1,398 @@
+// ---------------------------------------------------------------------------
+// Vintage academic layer (1950s journal): tracked caps, hairline rules,
+// warm ink on charcoal, square corners. Imported last so it refines the
+// component styles above.
+// ---------------------------------------------------------------------------
+
+body {
+    letter-spacing: 0.012em;
+    font-weight: 400;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Body copy sits one step below the headings
+.post-content p,
+.home-text p,
+.post-list-item .post-content {
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+// Masthead: double rule, tracked caps
+header {
+    padding-bottom: 8px;
+    border-bottom: 3px double $outlineVariant;
+
+    .site-title {
+        font-size: 1.02rem;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+    }
+
+    .nav-list-item a,
+    .nav-icon-button {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+    }
+
+    .nav-list-item a.nav-list-link.active,
+    .nav-list-item a.nav-list-link:hover,
+    a.post-title-link:hover {
+        border-bottom-width: 1px;
+    }
+
+    .nav-list-icons {
+        border-left-color: $outlineVariant;
+    }
+}
+
+// Titles in the blog overview
+.post-block .post-title {
+    margin: 0.4em 0 0.3em;
+    font-size: 1.3em;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+// Single post: the headline is the largest and heaviest element on the page
+.post .post-title {
+    margin: 0.55em 0 0.4em;
+    font-size: 2.15em;
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+// Italic small meta line under the title
+.post-info {
+    margin: 0.9em 0 1.8em;
+    padding-bottom: 0.6em;
+    color: $onSurfaceVariant;
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid $outlineVariant;
+}
+
+// Post page: title and date centred like a printed article, closed off by a
+// small centred rule before the text starts
+.post .post-info {
+    margin: 0 0 2.6em;
+    padding-bottom: 0;
+    text-align: center;
+    border-bottom: 0;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 4.5rem;
+        height: 1px;
+        margin: 1.5em auto 0;
+        background-color: $outline;
+    }
+}
+
+// Title image in the blog overview: full text width, no cropping.
+// The frame colour is matched to the image edges by js/thumb-bg.js;
+// the paper tone below is the fallback before the script runs.
+.post-thumb {
+    display: block;
+    width: 100%;
+    margin: 0 0 1.2em;
+    padding: 5px;
+    background-color: #F2ECDE;
+    border: 1px solid $outlineVariant;
+}
+
+.post-thumb-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    // always show the full picture – no cropping
+    object-fit: contain;
+}
+
+// SVG diagrams sit on "paper" so black line art stays readable
+.post-thumb-svg {
+    background-color: #F2ECDE;
+    border-color: $outline;
+}
+
+// Body copy
+.post-content {
+    h2 {
+        margin-top: 2.2em;
+        padding-top: 0.7em;
+        font-size: 1.32em;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        border-top: 1px solid $outlineVariant;
+    }
+
+    h3 {
+        font-size: 1.02em;
+        font-style: italic;
+        letter-spacing: 0.04em;
+        text-transform: none;
+    }
+
+    // Anchors: no marker by default; a section sign fades in left of the
+    // heading on hover/focus – same pattern for h2 and h3.
+    h2 a.header-anchor,
+    h3 a.header-anchor,
+    h2 a:before,
+    h3 a:before {
+        content: none;
+        text-decoration: none;
+    }
+
+    h2 a.header-anchor,
+    h3 a.header-anchor {
+        position: absolute;
+        top: 0;
+        left: -1.05em;
+        width: 1em;
+        height: 1.4em;
+
+        &::after {
+            content: "§";
+            color: $primary;
+            font-size: 0.8em;
+            font-style: normal;
+            font-weight: 400;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+    }
+
+    // h2 has padding above the text (rule), so the sign sits one step lower
+    h2 a.header-anchor {
+        top: 0.72em;
+    }
+
+    h2:hover a.header-anchor::after,
+    h3:hover a.header-anchor::after,
+    h2 a.header-anchor:focus::after,
+    h3 a.header-anchor:focus::after {
+        opacity: 1;
+    }
+
+    a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.18em;
+        text-decoration-color: rgba(200, 164, 74, 0.5);
+        // post.scss sets break-all; only break genuinely long URLs
+        word-break: normal;
+        overflow-wrap: break-word;
+
+        &:hover {
+            color: $primary;
+            text-decoration-color: currentColor;
+        }
+    }
+
+    blockquote {
+        margin: 1.7em 0;
+        padding: 0.15em 0 0.15em 1.1em;
+        color: $onSurfaceVariant;
+        font-style: italic;
+        border-left: 2px solid $primary;
+    }
+
+    hr {
+        margin: 2.6em 0;
+        border: 0;
+        border-top: 1px solid $outlineVariant;
+    }
+
+    // Tables set like an old journal: double rules above/below, hairlines inside,
+    // no box and no dark header band.
+    table {
+        display: table;
+        width: 100%;
+        margin: 1.8em 0;
+        border: 0;
+        border-collapse: collapse;
+        border-top: 3px double $outline;
+        border-bottom: 3px double $outline;
+        font-size: 0.95em;
+    }
+
+    thead {
+        background-color: transparent;
+    }
+
+    th {
+        padding: 0.5em 0.7em;
+        color: $onSurfaceVariant;
+        font-size: 0.76em;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 0;
+        border-bottom: 1px solid $outline;
+    }
+
+    td {
+        padding: 0.5em 0.7em;
+        border: 0;
+        border-bottom: 1px solid $outlineVariant;
+        vertical-align: top;
+    }
+
+    tbody tr:last-child td {
+        border-bottom: 0;
+    }
+
+    tbody tr:nth-child(2n) {
+        background-color: transparent;
+    }
+}
+
+code {
+    border-radius: 0;
+}
+
+// Cards: square, hairline, caps
+.home-card,
+.project-card {
+    border-radius: 2px;
+
+    &:hover,
+    &:focus-within {
+        transform: none;
+        box-shadow: none;
+        border-color: $primary;
+    }
+}
+
+.home-card-title,
+.project-card-title {
+    font-size: 0.98rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.home-card-hint,
+.project-tags {
+    font-size: 0.84rem;
+}
+
+.home-card-cta,
+.project-card-cta,
+.read-more {
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    &::after {
+        content: " →";
+    }
+}
+
+// Banner as a framed plate with a muted, printed feel
+.home .home-banner {
+    border-radius: 2px;
+}
+
+.home .home-banner-image {
+    filter: blur(3px) saturate(0.7) sepia(0.22) contrast(0.96);
+}
+
+.home .home-banner::after {
+    box-shadow: inset 0 0 0 1px rgba(232, 225, 210, 0.18);
+}
+
+.home .home-banner-title {
+    font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+    letter-spacing: 0.46em;
+    text-indent: 0.46em; // balances the trailing letter-space
+}
+
+// Search overlay
+.search-panel {
+    border-radius: 2px;
+}
+
+.search-input,
+.search-result a,
+.search-close {
+    border-radius: 0;
+}
+
+// Footer
+footer .copyright {
+    border-top: 3px double $outlineVariant;
+
+    p,
+    a {
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+}
+
+.paginator .prev,
+.paginator .next {
+    border: 1px solid $outlineVariant;
+    border-radius: 0;
+    color: $onBackground;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background-color: transparent;
+
+    &:hover {
+        color: $primary;
+        background-color: $surfaceContainer;
+    }
+}
+
+// Justified setting on wide screens, like printed matter
+@media screen and (min-width: 700px) {
+    .post-content p,
+    .home-text p {
+        text-align: justify;
+        hyphens: auto;
+    }
+}
+
+// Scrollbars (client-side CSS; Firefox only supports the standard properties,
+// Chromium/WebKit additionally the ::-webkit-scrollbar pseudo elements)
+html {
+    scrollbar-width: thin;
+    scrollbar-color: $outline $background;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $background;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $outlineVariant;
+    border: 2px solid $background;
+    border-radius: 0;
+
+    &:hover {
+        background-color: $primary;
+    }
+}

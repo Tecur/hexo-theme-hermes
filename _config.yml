@@ -1,6 +1,5 @@
 menu:
   Blog: blog/
-  Projects: projects/
 
 # Local search (index from content.json), shown as icon next to the menu
 search: true

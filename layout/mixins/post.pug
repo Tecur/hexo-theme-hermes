@@ -9,15 +9,34 @@ mixin postInfo(item)
 mixin posts()
     ul.home.post-list
         - page.posts.each(function (item) {
+            - var postContent = item.content || ''
+            - var thumbSrc = null
+            if item.thumbnail
+                if item.thumbnail === 'auto' || item.thumbnail === true
+                    //- first visual in the post: <img> or an embedded SVG (<object>)
+                    - var thumbMatch = /<img[^>]+src="([^"]+)"/i.exec(postContent) || /<object[^>]+data="([^"]+)"/i.exec(postContent)
+                    - thumbSrc = thumbMatch ? thumbMatch[1].replace(/&#x2F;/g, '/').replace(/&amp;/g, '&') : null
+                else if /^(https?:)?\//.test(item.thumbnail)
+                    - thumbSrc = item.thumbnail
+                else
+                    //- relative to the post's asset folder
+                    - thumbSrc = url_for(item.path + item.thumbnail)
+            - var excerptHtml = item.excerpt || ''
+            if thumbSrc
+                //- the title image replaces the copy inside the excerpt
+                - excerptHtml = excerptHtml.replace(/<img[^>]*>/gi, '').replace(/<object[\s\S]*?<\/object>/gi, '').replace(/<p>\s*<\/p>/gi, '')
             li.post-list-item
                 article.post-block
+                    if thumbSrc
+                        a.post-thumb(class={ 'post-thumb-svg': /\.svg$/i.test(thumbSrc) } href= url_for(item.path))
+                            img.post-thumb-image(src= thumbSrc alt= item.title)
                     h2.post-title
                         a.post-title-link(href= url_for(item.path))
                             != item.title
                     +postInfo(item)
                     if item.excerpt
                         .post-content
-                            != item.excerpt
+                            != excerptHtml
                         a.read-more(href= url_for(item.path))!= __('more')
                     else
                         .post-content

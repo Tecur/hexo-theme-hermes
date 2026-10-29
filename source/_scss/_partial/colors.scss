@@ -82,4 +82,61 @@ $surfaceContainerLowest: #0D0D16;
 $surfaceContainerLow: #1B1B24;
 $surfaceContainer: #1F1F28;
 $surfaceContainerHigh: #292933;
-$surfaceContainerHighest: #34343E
+$surfaceContainerHighest: #34343E;
+
+/* ---------------------------------------------------------------------------
+   Vintage academic palette (overrides the Material defaults above)
+   Aged paper ink on warm charcoal, brass accents, hairline rules.
+   --------------------------------------------------------------------------- */
+$surfaceTint: #C8A44A;
+
+$primary: #C8A44A;
+$onPrimary: #16130C;
+
+$primaryContainer: #3B3320;
+$onPrimaryContainer: #F1E6C8;
+
+$secondary: #A9A392;
+$onSecondary: #16130C;
+
+$secondaryContainer: #2A251C;
+$onSecondaryContainer: #DCD5C4;
+
+$tertiary: #A65A47;
+$onTertiary: #16130C;
+
+$tertiaryContainer: #43251E;
+$onTertiaryContainer: #F0D9D1;
+
+$error: #B86B55;
+$onError: #16130C;
+
+$errorContainer: #45211A;
+$onErrorContainer: #F0D9D1;
+
+$background: #14120D;
+$onBackground: #E8E1D2;
+
+$surface: #14120D;
+$onSurface: #E8E1D2;
+$surfaceVariant: #3B352B;
+$onSurfaceVariant: #B7AE9C;
+
+$outline: #6F6858;
+$outlineVariant: #35302A;
+
+$shadow: #000000;
+$scrim: #000000;
+
+$inverseSurface: #E8E1D2;
+$inverseOnSurface: #26221B;
+$inversePrimary: #8A6C24;
+
+$surfaceDim: #14120D;
+$surfaceBright: #3A342A;
+
+$surfaceContainerLowest: #0F0D0A;
+$surfaceContainerLow: #1A1712;
+$surfaceContainer: #1E1A15;
+$surfaceContainerHigh: #26221B;
+$surfaceContainerHighest: #302B22;
