@@ -1,0 +1,148 @@
+// Search overlay (triggered from the nav icon or the home page card)
+
+.search-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 12vh 1rem 2rem;
+
+    &[hidden] {
+        display: none;
+    }
+}
+
+.search-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 7, 12, 0.72);
+}
+
+.search-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: min(640px, 100%);
+    max-height: 70vh;
+    padding: 1.1rem 1.15rem 1rem;
+    border: 1px solid $outlineVariant;
+    border-radius: 14px;
+    background-color: $surfaceContainerHigh;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.search-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.search-title {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $onSurfaceVariant;
+}
+
+.search-close {
+    padding: 0 0.35rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: $onSurfaceVariant;
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    color: $onSurface;
+    background-color: $surface;
+    border: 1px solid $outlineVariant;
+    border-radius: 8px;
+
+    &:focus {
+        outline: 2px solid $primary;
+        outline-offset: 1px;
+    }
+}
+
+.search-hint {
+    margin: 0;
+    font-size: 0.82rem;
+    color: $onSurfaceVariant;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    list-style-type: none;
+}
+
+.search-result a {
+    display: block;
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+
+    &:hover,
+    &:focus {
+        background-color: $surfaceContainerHighest;
+        border-bottom: none;
+    }
+}
+
+.search-result-type {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: $primary;
+}
+
+.search-result-title {
+    display: block;
+    font-weight: 600;
+    color: $onSurface;
+}
+
+.search-result-snippet {
+    display: block;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: $onSurfaceVariant;
+}
+
+.search-result mark {
+    padding: 0 2px;
+    color: $primary;
+    background-color: rgba(193, 193, 255, 0.2);
+    border-radius: 3px;
+}
+
+.search-empty {
+    margin: 0;
+    color: $onSurfaceVariant;
+}
+
+body.search-open {
+    overflow: hidden;
+}

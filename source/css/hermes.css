@@ -1202,6 +1202,22 @@ header a.nav-list-link-icon:focus-visible {
   outline: 2px solid #C1C1FF;
   outline-offset: 3px;
 }
+header .nav-icon-button {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  color: #E4E1EE;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+header .nav-icon-button:hover, header .nav-icon-button:focus {
+  color: #C1C1FF;
+}
+header .nav-icon-button:focus-visible {
+  outline: 2px solid #C1C1FF;
+  outline-offset: 3px;
+}
 header .nav-icon {
   display: block;
   width: 1em;
@@ -3174,23 +3190,20 @@ pre[class*=language-cpp]:after {
 .home .home-banner-logo {
   width: clamp(56px, 9vw, 84px);
   height: auto;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
 }
 .home .home-banner-title {
+  margin: 0;
   color: #E4E1EE;
   font-size: clamp(1.25rem, 3.2vw, 1.9rem);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 .home .home-intro {
   max-width: 44rem;
   margin-bottom: 2.5rem;
-}
-.home .home-title {
-  margin: 0.4em 0 0.6em;
-  font-size: 1.75em;
 }
 .home .home-text p {
   margin: 0 0 1em;
@@ -3232,7 +3245,13 @@ pre[class*=language-cpp]:after {
 }
 
 .home-card-link {
+  padding: 0;
+  font: inherit;
   color: #E4E1EE;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 .home-card-link::after {
   content: "";
@@ -3282,6 +3301,148 @@ pre[class*=language-cpp]:after {
   font-size: 0.9rem;
   font-weight: 600;
   color: #C1C1FF;
+}
+
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 1rem 2rem;
+}
+.search-modal[hidden] {
+  display: none;
+}
+
+.search-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 7, 12, 0.72);
+}
+
+.search-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(640px, 100%);
+  max-height: 70vh;
+  padding: 1.1rem 1.15rem 1rem;
+  border: 1px solid #464556;
+  border-radius: 14px;
+  background-color: #292933;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.search-title {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #C6C4D8;
+}
+
+.search-close {
+  padding: 0 0.35rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #C6C4D8;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.search-close:hover {
+  color: #C1C1FF;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  color: #E4E1EE;
+  background-color: #12131C;
+  border: 1px solid #464556;
+  border-radius: 8px;
+}
+.search-input:focus {
+  outline: 2px solid #C1C1FF;
+  outline-offset: 1px;
+}
+
+.search-hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #C6C4D8;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style-type: none;
+}
+
+.search-result a {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+}
+.search-result a:hover, .search-result a:focus {
+  background-color: #34343E;
+  border-bottom: none;
+}
+
+.search-result-type {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #C1C1FF;
+}
+
+.search-result-title {
+  display: block;
+  font-weight: 600;
+  color: #E4E1EE;
+}
+
+.search-result-snippet {
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #C6C4D8;
+}
+
+.search-result mark {
+  padding: 0 2px;
+  color: #C1C1FF;
+  background-color: rgba(193, 193, 255, 0.2);
+  border-radius: 3px;
+}
+
+.search-empty {
+  margin: 0;
+  color: #C6C4D8;
+}
+
+body.search-open {
+  overflow: hidden;
 }
 
 .paginator {

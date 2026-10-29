@@ -14,6 +14,10 @@ include ../mixins/icon
                     != key.toUpperCase()
     if theme.menu_icons
         ul.nav-list.nav-list-icons
+            if theme.search
+                li.nav-list-item.nav-list-item-icon
+                    button.nav-icon-button.search-toggle(type="button" title="Search" aria-label="Search" aria-haspopup="dialog" aria-controls="search-modal")
+                        +menu-icon('search')
             each value, key in theme.menu_icons
                 - var re = /^(http|https):\/\/*/gi;
                 - var tar = re.test(value) ? "_blank" : "_self"

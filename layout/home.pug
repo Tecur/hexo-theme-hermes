@@ -16,9 +16,8 @@ block container
             img.home-banner-image(src=url_for('images/home-banner.jpg') alt="" aria-hidden="true")
             div.home-banner-overlay
                 img.home-banner-logo(src=url_for(theme.logo) alt="")
-                span.home-banner-title= config.title
+                h1.home-banner-title= config.title
         section.home-intro
-            h1.home-title #{ page.title }
             if page.content
                 div.home-text
                     != page.content
@@ -45,10 +44,10 @@ block container
                 span.home-card-cta Browse the projects
             li.home-card
                 h2.home-card-title
-                    a.home-card-link(href=url_for('archives/')) Archive
-                p.home-card-text Every post in chronological order, in case you are looking for something specific.
-                p.home-card-hint-note #{ posts.length } posts published so far.
-                span.home-card-cta Open the archive
+                    button.home-card-link.search-toggle(type="button") Search
+                p.home-card-text Find posts and project pages by keyword – titles, tags and full text are indexed.
+                p.home-card-hint-note Everything is searched locally in your browser.
+                span.home-card-cta Open search
 
 block copyright
     include partial/copyright

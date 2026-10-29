@@ -71,6 +71,27 @@ header {
         }
     }
 
+    // Search trigger: button that opens the search overlay
+    .nav-icon-button {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        color: $onBackground;
+        background: none;
+        border: 0;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            color: $primary;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $primary;
+            outline-offset: 3px;
+        }
+    }
+
     // Icon size follows the menu font size (16px) so it matches the text
     .nav-icon {
         display: block;

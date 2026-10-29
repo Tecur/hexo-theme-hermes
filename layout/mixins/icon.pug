@@ -10,5 +10,9 @@ mixin menu-icon(name)
             svg.nav-icon(viewBox="3.5 3.5 17 17" aria-hidden="true" focusable="false")
                 path(fill="currentColor" d="M4 4a16 16 0 0 1 16 16h-3.2A12.8 12.8 0 0 0 4 7.2V4Zm0 6.4a9.6 9.6 0 0 1 9.6 9.6h-3.2A6.4 6.4 0 0 0 4 13.6v-3.2Z")
                 circle(cx="6.5" cy="17.5" r="2.5" fill="currentColor")
+        when 'search'
+            svg.nav-icon(viewBox="0 0 24 24" aria-hidden="true" focusable="false")
+                circle(cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2")
+                path(d="M15.5 15.5 21 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round")
         default
             span.nav-icon-fallback= name

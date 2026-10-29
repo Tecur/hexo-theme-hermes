@@ -46,26 +46,22 @@
     .home-banner-logo {
         width: clamp(56px, 9vw, 84px);
         height: auto;
-        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.55));
+        filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
     }
 
     .home-banner-title {
+        margin: 0;
         color: $onBackground;
         font-size: clamp(1.25rem, 3.2vw, 1.9rem);
         font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+        text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.7);
     }
 
     .home-intro {
         max-width: 44rem;
         margin-bottom: 2.5rem;
-    }
-
-    .home-title {
-        margin: 0.4em 0 0.6em;
-        font-size: 1.75em;
     }
 
     .home-text {
@@ -113,8 +109,15 @@
 }
 
 // Stretched link: the whole card is clickable, the hint links stay clickable
+// (also used for the <button> that opens the search overlay)
 .home-card-link {
+    padding: 0;
+    font: inherit;
     color: $onSurface;
+    text-align: left;
+    background: none;
+    border: 0;
+    cursor: pointer;
 
     &::after {
         content: "";

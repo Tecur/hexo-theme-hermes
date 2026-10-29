@@ -1,7 +1,9 @@
 menu:
   Blog: blog/
   Projects: projects/
-  Archive: archives/
+
+# Local search (index from content.json), shown as icon next to the menu
+search: true
 
 # Icon-only links, rendered on the right side of the navigation
 # Supported icon names: GitHub, Feed
